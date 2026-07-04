@@ -1,8 +1,8 @@
 "use client";
 
 import Link from 'next/link';
-import Image from 'next/image';
 import { motion } from 'framer-motion';
+import IkImage from '@/components/IkImage';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
@@ -10,11 +10,10 @@ export default function BlogClient({ blogs }) {
   return (
     <main className="w-full flex min-h-screen flex-col font-sans bg-[#faf9f6]">
       <Header />
-      
-      {/* Blog Banner */}
+
       <section className="relative w-full pt-32 pb-16 md:pt-40 md:pb-24 flex flex-col items-center justify-center text-center px-4 mt-[-6rem] md:mt-[-7rem] z-10 select-none">
         <div className="h-20"></div>
-        <motion.p 
+        <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
@@ -22,7 +21,7 @@ export default function BlogClient({ blogs }) {
         >
           Insights & Stories
         </motion.p>
-        <motion.h1 
+        <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
@@ -32,11 +31,10 @@ export default function BlogClient({ blogs }) {
         </motion.h1>
       </section>
 
-      {/* Blog Feed */}
       <section className="max-w-6xl mx-auto w-full px-6 md:px-12 pb-32 relative z-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-16">
           {blogs.map((blog, index) => (
-             <motion.article 
+             <motion.article
                key={blog.slug}
                initial={{ opacity: 0, y: 40 }}
                whileInView={{ opacity: 1, y: 0 }}
@@ -45,10 +43,11 @@ export default function BlogClient({ blogs }) {
                className="flex flex-col group cursor-pointer"
              >
                 <Link href={`/blog/${blog.slug}`} className="block overflow-hidden relative aspect-[4/5] w-full mb-6 shadow-sm group-hover:shadow-xl transition-all duration-500">
-                   <Image 
-                     src={blog.image} 
-                     alt={blog.title} 
-                     fill 
+                   <IkImage
+                     src={blog.image}
+                     alt={blog.title}
+                     fill
+                     preset="card"
                      className="object-cover transition-transform duration-1000 group-hover:scale-105"
                    />
                    <div className="absolute inset-0 bg-black/5 group-hover:bg-black/10 transition-colors duration-500"></div>
@@ -67,8 +66,8 @@ export default function BlogClient({ blogs }) {
                    <p className="text-sm text-gray-500 leading-relaxed font-medium line-clamp-3 mb-6">
                      {blog.excerpt}
                    </p>
-                   <Link 
-                     href={`/blog/${blog.slug}`} 
+                   <Link
+                     href={`/blog/${blog.slug}`}
                      className="mt-auto inline-flex items-center text-xs uppercase tracking-[0.2em] font-bold text-[#3d3a35] hover:text-[#8b7355] transition-colors group/link"
                    >
                      Read Story

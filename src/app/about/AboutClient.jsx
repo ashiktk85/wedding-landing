@@ -1,34 +1,35 @@
 "use client";
 
-import Image from 'next/image';
 import { motion } from 'framer-motion';
+import IkImage from '@/components/IkImage';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { siteImages } from '@/lib/imagePaths';
 
 export default function AboutClient() {
   return (
     <main className="w-full flex min-h-screen flex-col font-sans bg-white">
       <Header />
-      
-      {/* About Banner */}
+
       <section className="relative w-full h-[60vh] md:h-[70vh] flex items-center justify-center overflow-hidden bg-black mt-[-3rem] md:mt-[-5rem] z-10 pt-20 group">
-        <motion.div 
+        <motion.div
           initial={{ scale: 1.05 }}
           animate={{ scale: 1 }}
           transition={{ duration: 1.5 }}
           className="absolute inset-0"
         >
-          <Image
-            src="/services-maternity.png"
+          <IkImage
+            src={siteImages.aboutBanner}
             alt="About FocusMedia Productions"
             fill
+            preset="banner"
             className="object-cover object-center opacity-70"
             priority
           />
         </motion.div>
         <div className="absolute inset-0 bg-black/30 z-10 transition-colors duration-500 group-hover:bg-black/20"></div>
-        
-        <motion.div 
+
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
@@ -41,11 +42,10 @@ export default function AboutClient() {
         </motion.div>
       </section>
 
-      {/* Content Section */}
       <section className="w-full py-24 md:py-32 px-6 md:px-12 lg:px-24 bg-[#faf9f6]">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-          
-          <motion.div 
+
+          <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
@@ -53,7 +53,7 @@ export default function AboutClient() {
             className="relative order-2 lg:order-1"
           >
             <div className="flex items-center gap-6 mb-10">
-              <motion.div 
+              <motion.div
                 initial={{ width: 0 }}
                 whileInView={{ width: "4rem" }}
                 viewport={{ once: true }}
@@ -64,7 +64,7 @@ export default function AboutClient() {
                 Meet The <span className="italic">Artist</span>
               </h2>
             </div>
-            
+
             <div className="text-gray-600 text-sm md:text-[15px] space-y-6 leading-relaxed font-medium text-justify">
               <p>
                 Founded by a profound passion for documenting life's most fleeting and beautiful moments, FocusMedia Productions started as a solo endeavor and has blossomed into a full-scale creative studio dedicated to artistic storytelling.
@@ -76,8 +76,8 @@ export default function AboutClient() {
                 From intimate elopements to grand celebrations, we pour our hearts into every frame. We are not just your photographers; we are your visual biographers, quietly capturing the laughter, the tears, and the quiet moments in between.
               </p>
             </div>
-            
-            <motion.div 
+
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -87,8 +87,8 @@ export default function AboutClient() {
                <p className="font-script text-3xl md:text-4xl text-[#a08b77] mt-4 ml-4 transform -rotate-3">FocusMedia Studio</p>
             </motion.div>
           </motion.div>
-          
-          <motion.div 
+
+          <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, margin: "-100px" }}
@@ -96,15 +96,15 @@ export default function AboutClient() {
             className="relative h-[500px] lg:h-[700px] w-full group order-1 lg:order-2 self-center flex items-center justify-center p-4"
           >
             <div className="relative w-full h-full max-w-[500px] max-h-[700px] mx-auto lg:mr-0 z-20">
-               <Image 
-                 src="/intro-main.png"
+               <IkImage
+                 src={siteImages.intro.main}
                  alt="Artist portrait"
                  fill
+                 preset="card"
                  className="object-cover object-center shadow-2xl transition-transform duration-700 group-hover:scale-[1.02]"
                />
                <div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             </div>
-            {/* Decorative Element */}
             <div className="absolute top-[5%] md:top-10 bottom-[5%] md:bottom-10 right-0 left-8 md:left-12 border-[1px] border-[#a08b77]/30 z-10 pointer-events-none"></div>
             <div className="absolute -bottom-8 -left-8 md:-bottom-12 md:-left-12 w-64 h-64 md:w-80 md:h-80 bg-[#e2d5c5]/20 -z-10"></div>
           </motion.div>
@@ -112,12 +112,11 @@ export default function AboutClient() {
         </div>
       </section>
 
-      {/* Quote / Mission */}
       <section className="w-full bg-[#1a1a1a] py-24 md:py-32 px-6 flex flex-col items-center justify-center text-center relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
-           <Image src="/services-weddings.png" alt="Textures" fill className="object-cover grayscale" />
+           <IkImage src={siteImages.services.weddings} alt="Textures" fill preset="hero" className="object-cover grayscale" />
         </div>
-        <motion.div 
+        <motion.div
            initial={{ opacity: 0, y: 30 }}
            whileInView={{ opacity: 1, y: 0 }}
            viewport={{ once: true }}

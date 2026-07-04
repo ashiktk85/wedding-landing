@@ -1,3 +1,5 @@
+import { siteImages } from './imagePaths';
+
 export const blogs = [
   {
     slug: 'the-art-of-destination-weddings',
@@ -16,7 +18,7 @@ export const blogs = [
       
       <p>Ultimately, a destination wedding is a beautiful, chaotic, and utterly romantic adventure. Ensure you choose a photographer who knows how to adapt to new environments and capture the profound beauty of your chosen destination.</p>
     `,
-    image: '/hero-bg.png',
+    image: siteImages.hero,
   },
   {
     slug: 'finding-the-perfect-light',
@@ -35,7 +37,7 @@ export const blogs = [
       
       <p>Let light be your guide, and trust your photographer to hunt for those perfectly lit moments.</p>
     `,
-    image: '/intro-main.png',
+    image: siteImages.intro.main,
   },
   {
     slug: 'capturing-the-details',
@@ -54,7 +56,7 @@ export const blogs = [
       
       <p>We pride ourselves on being observant, unobtrusive, and ever-ready to document the quiet elegance of the subtle things.</p>
     `,
-    image: '/intro-bouquet.png',
+    image: siteImages.intro.bouquet,
   }
 ];
 

@@ -1,4 +1,5 @@
 import { Inter, Playfair_Display, Great_Vibes } from "next/font/google";
+import { ImageKitProvider } from "@imagekit/next";
 import "./globals.css";
 
 const inter = Inter({
@@ -32,7 +33,11 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`${inter.variable} ${playfair.variable} ${greatVibes.variable} h-full antialiased`}
     >
-      <body className="font-sans min-h-full flex flex-col">{children}</body>
+      <body className="font-sans min-h-full flex flex-col">
+        <ImageKitProvider urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}>
+          {children}
+        </ImageKitProvider>
+      </body>
     </html>
   );
 }

@@ -1,12 +1,12 @@
 "use client";
 
-import Image from 'next/image';
 import { motion } from 'framer-motion';
+import IkImage from '@/components/IkImage';
+import { siteImages } from '@/lib/imagePaths';
 
 export default function IntroSection() {
   return (
     <section className="w-full">
-      {/* Top Banner Area */}
       <div className="w-full bg-[#f3efe8] py-16 px-4 md:px-8 flex flex-col items-center justify-center text-center overflow-hidden">
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -30,10 +30,8 @@ export default function IntroSection() {
         </motion.p>
       </div>
 
-      {/* Grid Layout Layout */}
-      <div className="w-full grid grid-cols-1 lg:grid-cols-2 relative min-h-[800px] bg-white">
+      <div className="w-full grid grid-cols-1 lg:grid-cols-2 relative min-h-[800px] bg-white overflow-hidden">
 
-        {/* Left Column - Text Details */}
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -90,7 +88,6 @@ export default function IntroSection() {
           </div>
         </motion.div>
 
-        {/* Right Column - Image Collage */}
         <motion.div
           initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -98,19 +95,18 @@ export default function IntroSection() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="relative w-full h-[500px] lg:h-auto min-h-[600px] order-1 lg:order-2 bg-[#1a1a1a]"
         >
-          {/* Main Large Image */}
           <div className="relative w-full h-full lg:w-4/5 lg:absolute lg:right-0 lg:top-0 lg:bottom-0">
-            <Image
-              src="/intro-main.png"
+            <IkImage
+              src={siteImages.intro.main}
               alt="Elegant couple portrait"
               fill
+              preset="card"
               className="object-cover object-center"
               sizes="(max-width: 1024px) 100vw, 50vw"
             />
             <div className="absolute inset-0 bg-black/10"></div>
           </div>
 
-          {/* Overlapping Smaller Image */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9, y: 30 }}
             whileInView={{ opacity: 1, scale: 1, y: 0 }}
@@ -118,16 +114,16 @@ export default function IntroSection() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="absolute top-[10%] lg:top-[12%] left-4 lg:left-[-15%] w-48 h-72 sm:w-64 sm:h-96 md:w-72 md:h-[28rem] shadow-2xl z-20 hidden sm:block"
           >
-            <Image
-              src="/intro-bouquet.png"
+            <IkImage
+              src={siteImages.intro.bouquet}
               alt="Fine art wedding bouquet"
               fill
+              preset="card"
               className="object-cover object-center border-[6px] border-white/10"
               sizes="(max-width: 1024px) 300px, 400px"
             />
           </motion.div>
 
-          {/* Script Overlaid Text */}
           <motion.div
             initial={{ opacity: 0, rotate: -3, scale: 0.9 }}
             whileInView={{ opacity: 1, rotate: -3, scale: 1 }}

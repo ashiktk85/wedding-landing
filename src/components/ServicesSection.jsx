@@ -1,7 +1,8 @@
 "use client";
 
-import Image from 'next/image';
 import { motion } from 'framer-motion';
+import IkImage from '@/components/IkImage';
+import { siteImages } from '@/lib/imagePaths';
 
 export default function ServicesSection() {
   return (
@@ -9,7 +10,6 @@ export default function ServicesSection() {
 
       <div className="w-full max-w-[1200px] mx-auto px-4 sm:px-6 md:px-12 lg:px-20 grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] gap-8 lg:gap-12 items-center">
 
-        {/* Left Column - Vertical Image */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -17,10 +17,11 @@ export default function ServicesSection() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="relative w-full sm:w-[85%] lg:w-4/5 mx-auto lg:ml-auto lg:mr-0 h-[50vh] sm:h-[400px] lg:h-[70vh] min-h-[400px] max-h-[700px] overflow-hidden shadow-2xl z-10 group"
         >
-          <Image
-            src="/services-weddings.png"
+          <IkImage
+            src={siteImages.services.weddings}
             alt="Wedding Photography Services"
             fill
+            preset="card"
             className="object-cover object-center transition-transform duration-1000 group-hover:scale-105"
             sizes="(max-width: 1024px) 100vw, 50vw"
           />
@@ -32,10 +33,8 @@ export default function ServicesSection() {
           </div>
         </motion.div>
 
-        {/* Right Column */}
         <div className="w-full flex flex-col justify-center">
 
-          {/* Section Header */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -50,10 +49,8 @@ export default function ServicesSection() {
             <div className="flex-1 h-px bg-gray-300 ml-6 md:ml-10 min-w-[50px]"></div>
           </motion.div>
 
-          {/* Collage & Button Container */}
           <div className="relative w-full px-4 sm:px-0">
 
-            {/* Maternity Image */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -61,10 +58,11 @@ export default function ServicesSection() {
               transition={{ duration: 0.8, delay: 0.3 }}
               className="relative w-[80%] sm:w-[70%] lg:w-[70%] max-w-[400px] aspect-4/3 overflow-hidden shadow-xl group z-10"
             >
-              <Image
-                src="/services-maternity.png"
+              <IkImage
+                src={siteImages.services.maternity}
                 alt="Maternity Photography Services"
                 fill
+                preset="card"
                 className="object-cover object-center transition-transform duration-1000 group-hover:scale-105"
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
@@ -76,7 +74,6 @@ export default function ServicesSection() {
               </div>
             </motion.div>
 
-            {/* Family Image (Overlapping) */}
             <motion.div
               initial={{ opacity: 0, x: -30, y: 30 }}
               whileInView={{ opacity: 1, x: 0, y: 0 }}
@@ -84,10 +81,11 @@ export default function ServicesSection() {
               transition={{ duration: 0.8, delay: 0.5 }}
               className="relative w-[70%] sm:w-[60%] lg:w-[60%] max-w-[320px] aspect-4/3 overflow-hidden shadow-2xl -mt-[15%] sm:-mt-[15%] ml-auto z-20 group"
             >
-              <Image
-                src="/services-family.png"
+              <IkImage
+                src={siteImages.services.family}
                 alt="Family Photography Services"
                 fill
+                preset="card"
                 className="object-cover object-bottom-right transition-transform duration-1000 group-hover:scale-105"
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
@@ -99,7 +97,6 @@ export default function ServicesSection() {
               </div>
             </motion.div>
 
-            {/* CTA Button */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}

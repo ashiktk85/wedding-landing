@@ -42,7 +42,7 @@ export const metadata = {
 
 export default function Home() {
   return (
-    <main className="w-full flex min-h-screen flex-col font-sans bg-white">
+    <main className="w-full flex min-h-screen flex-col font-sans bg-white overflow-x-hidden">
       <Hero />
       <IntroSection />
       <ServicesSection />
