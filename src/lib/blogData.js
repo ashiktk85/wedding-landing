@@ -2,9 +2,40 @@ import { siteImages } from './imagePaths';
 
 export const blogs = [
   {
+    slug: 'wedding-photography-cost-in-kerala',
+    title: 'Wedding Photography Cost in Kerala: What Actually Drives the Price',
+    date: 'November 12, 2025',
+    datePublished: '2025-11-12',
+    category: 'Planning',
+    excerpt: 'Wondering what wedding photography really costs in Kerala? Here is an honest breakdown of coverage hours, team size, albums, travel, and what to expect at every price tier.',
+    content: `
+      <p>If you have started researching wedding photographers in Kerala, you have probably noticed a wide range of quotes — from modest day rates to premium packages that run into lakhs. That spread is not random. Understanding what actually drives the price helps you compare apples to apples and invest where it matters most for your celebration.</p>
+
+      <h3>Coverage hours and team size</h3>
+      <p>The single biggest factor is how long your photographer stays and how many professionals are on your team. A six-hour package with one lead photographer suits intimate ceremonies beautifully. A full-day or multi-day Kerala wedding — with mehndi, church or temple rituals, and a reception — typically needs ten hours or more and often a second shooter so nothing is missed while one photographer follows the bride and another stays with the groom.</p>
+
+      <h3>Deliverables: images, albums, and films</h3>
+      <p>High-resolution edited galleries are standard, but volume varies. Entry packages may include 300+ images; premium collections deliver 600–1000+. Fine-art wedding albums, cinematic highlight films, and drone coverage each add production time and cost. Always ask what is included versus optional add-ons.</p>
+
+      <h3>Travel and destination logistics</h3>
+      <p>Kochi-based studios often cover Ernakulam and nearby districts within base rates. Shoots in Munnar, Alleppey backwaters, Kozhikode, or Fort Kochi heritage venues may include travel and accommodation. Destination weddings outside Kerala — or for couples flying in from Dubai, the Gulf, or elsewhere — require flights, lodging, and sometimes additional crew days.</p>
+
+      <h3>Experience and style</h3>
+      <p>Candid, documentary-style wedding photography demands anticipation and consistency across long, unpredictable days. Editorial portraiture during golden hour adds dedicated session time. Established studios with deep Kerala wedding experience — across Christian, Hindu, and Muslim ceremonies — command higher rates because they have seen every lighting challenge a monsoon-season reception can throw at them.</p>
+
+      <h3>What our packages start at</h3>
+      <p>At FocusMedia Productions, transparent pricing starts at ₹50,000 for The Essential — six hours, one lead photographer, and a private online gallery. Our most popular Premium tier at ₹85,000 adds a second shooter, engagement session, and a fine-art album. Grand multi-day celebrations are covered by The Signature from ₹1,50,000. See full details on our <a href="/packages">packages page</a>.</p>
+
+      <h3>How to get an accurate quote</h3>
+      <p>Share your date, venue (or venues), guest count, and whether you need photo, video, or both. Mention if you are planning a Kochi city wedding, a backwater celebration in Alleppey, or a destination event. We reply within 24 hours with availability and a tailored recommendation. <a href="/contact">Get in touch</a> or explore our <a href="/wedding-photography/kochi">Kochi wedding photography</a> work to see if our style fits your vision.</p>
+    `,
+    image: siteImages.services.weddings,
+  },
+  {
     slug: 'the-art-of-destination-weddings',
     title: 'The Art of Destination Weddings',
-    date: 'October 15, 2026',
+    date: 'October 15, 2025',
+    datePublished: '2025-10-15',
     category: 'Weddings',
     excerpt: 'Planning a wedding abroad? Here are our top tips for ensuring your memories are captured beautifully against stunning landscapes.',
     content: `
@@ -18,12 +49,13 @@ export const blogs = [
       
       <p>Ultimately, a destination wedding is a beautiful, chaotic, and utterly romantic adventure. Ensure you choose a photographer who knows how to adapt to new environments and capture the profound beauty of your chosen destination.</p>
     `,
-    image: siteImages.hero,
+    image: siteImages.blog.destination,
   },
   {
     slug: 'finding-the-perfect-light',
     title: 'Finding the Perfect Light',
-    date: 'September 22, 2026',
+    date: 'September 22, 2025',
+    datePublished: '2025-09-22',
     category: 'Editorials',
     excerpt: 'Light is the ultimate tool in photography. We delve into how natural light shapes our editorial approach and why "golden hour" reigns supreme.',
     content: `
@@ -37,12 +69,13 @@ export const blogs = [
       
       <p>Let light be your guide, and trust your photographer to hunt for those perfectly lit moments.</p>
     `,
-    image: siteImages.intro.main,
+    image: siteImages.blog.light,
   },
   {
     slug: 'capturing-the-details',
     title: 'Capturing the Quiet Details',
-    date: 'August 10, 2026',
+    date: 'August 10, 2025',
+    datePublished: '2025-08-10',
     category: 'Details',
     excerpt: 'The grand moments are essential, but the quiet, unseen details are what weave the full narrative of your wedding day.',
     content: `
@@ -56,10 +89,10 @@ export const blogs = [
       
       <p>We pride ourselves on being observant, unobtrusive, and ever-ready to document the quiet elegance of the subtle things.</p>
     `,
-    image: siteImages.intro.bouquet,
-  }
+    image: siteImages.blog.details,
+  },
 ];
 
 export function getBlogBySlug(slug) {
-  return blogs.find(blog => blog.slug === slug);
+  return blogs.find((blog) => blog.slug === slug);
 }

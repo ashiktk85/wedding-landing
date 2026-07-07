@@ -1,10 +1,15 @@
-import AboutClient from './AboutClient';
+import { siteConfig } from '@/lib/siteConfig';
+import { canonicalPath, defaultOpenGraph } from '@/lib/metadata';
 
 export const metadata = {
-  title: 'Our Story | FocusMedia Productions',
-  description: 'Learn more about FocusMedia Productions and our approach to capturing your beautiful moments in life.',
+  title: `Our Story | Kerala Wedding Photographers Since ${siteConfig.foundingYear} | FocusMedia`,
+  description:
+    'Meet the team behind FocusMedia Productions — a Kochi wedding photography studio blending documentary honesty with fine-art storytelling for Kerala & destination weddings.',
+  ...canonicalPath('/about'),
+  openGraph: defaultOpenGraph({
+    title: `Our Story | FocusMedia Productions Since ${siteConfig.foundingYear}`,
+    url: '/about',
+  }),
 };
 
-export default function AboutPage() {
-  return <AboutClient />;
-}
+export { default } from './AboutClient';

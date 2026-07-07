@@ -1,5 +1,9 @@
 import { Inter, Playfair_Display, Great_Vibes } from "next/font/google";
 import { ImageKitProvider } from "@imagekit/next";
+import JsonLd from "@/components/JsonLd";
+import { businessSchema } from "@/lib/schema";
+import { siteConfig } from "@/lib/siteConfig";
+import { defaultOpenGraph } from "@/lib/metadata";
 import "./globals.css";
 
 const inter = Inter({
@@ -21,10 +25,20 @@ const greatVibes = Great_Vibes({
 
 export const metadata = {
   title: {
-    template: '%s | FocusMedia',
-    default: 'Wedding Photography & Videography',
+    template: '%s | FocusMedia Productions',
+    default: 'Best Wedding Photography & Videography in Kerala | FocusMedia',
   },
-  description: "FocusMedia Productions captures the most beautiful moments of your life with our cinematic wedding photography and videography services.",
+  description:
+    'FocusMedia Productions is a Kochi-based wedding photography & cinematic videography studio covering candid, Christian, Hindu & Muslim weddings across Kerala and destination weddings worldwide.',
+  metadataBase: new URL(siteConfig.url),
+  alternates: { canonical: '/' },
+  icons: {
+    icon: siteConfig.logo.black,
+    shortcut: siteConfig.logo.black,
+    apple: siteConfig.logo.black,
+  },
+  openGraph: defaultOpenGraph(),
+  twitter: { card: 'summary_large_image' },
 };
 
 export default function RootLayout({ children }) {
@@ -34,6 +48,7 @@ export default function RootLayout({ children }) {
       className={`${inter.variable} ${playfair.variable} ${greatVibes.variable} h-full antialiased`}
     >
       <body className="font-sans min-h-full flex flex-col">
+        <JsonLd data={businessSchema()} />
         <ImageKitProvider urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}>
           {children}
         </ImageKitProvider>

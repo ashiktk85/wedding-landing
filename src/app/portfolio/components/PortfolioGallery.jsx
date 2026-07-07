@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import IkImage from '@/components/IkImage';
 import { portfolioProjects, portfolioCategories } from '@/lib/portfolioData';
+import { imageCardClass, imageGridClass } from '@/lib/imageLayout';
 
 export default function PortfolioGallery() {
   const [activeCategory, setActiveCategory] = useState('All');
@@ -71,7 +72,7 @@ export default function PortfolioGallery() {
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-12 min-h-[600px] relative z-10">
         <motion.div
           layout
-          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 grid-flow-dense auto-rows-[300px] md:auto-rows-[350px] gap-4 lg:gap-8"
+          className={imageGridClass}
         >
           <AnimatePresence>
             {filteredItems.map((item) => (
@@ -82,9 +83,7 @@ export default function PortfolioGallery() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9, transition: { duration: 0.2 } }}
                 transition={{ duration: 0.6 }}
-                className={`relative group overflow-hidden bg-gray-200 shadow-md hover:shadow-xl transition-shadow ${
-                  activeCategory === 'All' ? item.span : 'col-span-1 row-span-1'
-                }`}
+                className={`${imageCardClass} group bg-gray-200 shadow-md hover:shadow-xl transition-shadow`}
               >
                 <Link href={`/portfolio/${item.slug}`} className="absolute inset-0 block">
                   <IkImage

@@ -1,4 +1,6 @@
 import Link from 'next/link';
+import BrandLogo from '@/components/BrandLogo';
+import { siteConfig } from '@/lib/siteConfig';
 
 export default function Footer() {
   return (
@@ -28,13 +30,14 @@ export default function Footer() {
            <Link href="/about" className="uppercase text-[10px] tracking-widest text-gray-400 hover:text-white transition">About</Link>
            <Link href="/portfolio" className="uppercase text-[10px] tracking-widest text-gray-400 hover:text-white transition">Portfolio</Link>
            <Link href="/packages" className="uppercase text-[10px] tracking-widest text-gray-400 hover:text-white transition">Packages</Link>
+           <Link href="/wedding-photography/kochi" className="uppercase text-[10px] tracking-widest text-gray-400 hover:text-white transition">Kochi Weddings</Link>
            <Link href="/contact" className="uppercase text-[10px] tracking-widest text-gray-400 hover:text-white transition">Contact</Link>
         </div>
 
         {/* Brand / Logo */}
-        <div className="flex flex-col items-center justify-center">
-           <Link href="/" className="font-serif text-2xl tracking-[0.15em] text-white mb-4">
-             FOCUSMEDIA
+        <div className="flex flex-col items-center justify-center overflow-visible">
+           <Link href="/" className="mb-4 block overflow-visible pb-3 hover:opacity-90 transition" aria-label={siteConfig.name}>
+             <BrandLogo variant="white" size="footer" />
            </Link>
            <p className="font-sans uppercase text-[9px] tracking-widest text-gray-500">
              Kerala, India & Worldwide Destination
@@ -44,10 +47,10 @@ export default function Footer() {
         {/* Socials & Contact */}
         <div className="flex flex-col items-center md:items-end space-y-4">
            <h4 className="font-serif italic text-xl text-[#d4cdbf] mb-2">Connect</h4>
-           <a href="mailto:hello@focusmediaproductions.com" className="uppercase text-[10px] tracking-widest text-gray-400 hover:text-white transition">hello@focusmediaproductions.com</a>
-           <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="uppercase text-[10px] tracking-widest text-gray-400 hover:text-white transition">Instagram</a>
-           <a href="https://pinterest.com" target="_blank" rel="noopener noreferrer" className="uppercase text-[10px] tracking-widest text-gray-400 hover:text-white transition">Pinterest</a>
-           <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="uppercase text-[10px] tracking-widest text-gray-400 hover:text-white transition">Facebook</a>
+           <a href={`mailto:${siteConfig.email}`} className="uppercase text-[10px] tracking-widest text-gray-400 hover:text-white transition">{siteConfig.email}</a>
+           <a href={siteConfig.social.instagram} target="_blank" rel="noopener noreferrer" className="uppercase text-[10px] tracking-widest text-gray-400 hover:text-white transition">Instagram</a>
+           <a href={siteConfig.social.pinterest} target="_blank" rel="noopener noreferrer" className="uppercase text-[10px] tracking-widest text-gray-400 hover:text-white transition">Pinterest</a>
+           <a href={siteConfig.social.facebook} target="_blank" rel="noopener noreferrer" className="uppercase text-[10px] tracking-widest text-gray-400 hover:text-white transition">Facebook</a>
         </div>
       </div>
 

@@ -5,6 +5,7 @@ import IkImage from '@/components/IkImage';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { siteImages } from '@/lib/imagePaths';
+import { siteConfig } from '@/lib/siteConfig';
 
 export default function AboutClient() {
   return (
@@ -67,7 +68,7 @@ export default function AboutClient() {
 
             <div className="text-gray-600 text-sm md:text-[15px] space-y-6 leading-relaxed font-medium text-justify">
               <p>
-                Founded by a profound passion for documenting life's most fleeting and beautiful moments, FocusMedia Productions started as a solo endeavor and has blossomed into a full-scale creative studio dedicated to artistic storytelling.
+                Founded in {siteConfig.foundingYear} and based in Kochi, FocusMedia Productions began as a solo endeavor driven by a profound passion for documenting life&apos;s most fleeting and beautiful moments, and has blossomed into a full-scale creative studio dedicated to artistic storytelling.
               </p>
               <p>
                 We believe that every love story is entirely unique, and deserves to be captured in a way that feels organic, authentic, and undeniably yours. Our approach blends editorial elegance with a documentary spirit, ensuring your memories are preserved in their truest form.
@@ -88,26 +89,20 @@ export default function AboutClient() {
             </motion.div>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="relative h-[500px] lg:h-[700px] w-full group order-1 lg:order-2 self-center flex items-center justify-center p-4"
-          >
-            <div className="relative w-full h-full max-w-[500px] max-h-[700px] mx-auto lg:mr-0 z-20">
-               <IkImage
-                 src={siteImages.intro.main}
-                 alt="Artist portrait"
-                 fill
-                 preset="card"
-                 className="object-cover object-center shadow-2xl transition-transform duration-700 group-hover:scale-[1.02]"
-               />
-               <div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <div className="relative w-full order-1 lg:order-2 self-center flex items-center justify-center p-4">
+            <div className="relative w-full max-w-[420px] mx-auto lg:mr-0 z-20">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/logo/393384292_351225920720259_4853708852247536020_n.jpg"
+                alt="FocusMedia Productions"
+                width={1080}
+                height={1080}
+                className="w-full h-auto block shadow-2xl"
+              />
             </div>
-            <div className="absolute top-[5%] md:top-10 bottom-[5%] md:bottom-10 right-0 left-8 md:left-12 border-[1px] border-[#a08b77]/30 z-10 pointer-events-none"></div>
-            <div className="absolute -bottom-8 -left-8 md:-bottom-12 md:-left-12 w-64 h-64 md:w-80 md:h-80 bg-[#e2d5c5]/20 -z-10"></div>
-          </motion.div>
+            <div className="absolute top-[5%] md:top-10 bottom-[5%] md:bottom-10 right-0 left-8 md:left-12 border border-[#a08b77]/30 z-10 pointer-events-none" />
+            <div className="absolute -bottom-8 -left-8 md:-bottom-12 md:-left-12 w-64 h-64 md:w-80 md:h-80 bg-[#e2d5c5]/20 -z-10" />
+          </div>
 
         </div>
       </section>

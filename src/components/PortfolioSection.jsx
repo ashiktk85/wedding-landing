@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import IkImage from '@/components/IkImage';
 import { getFeaturedProjects } from '@/lib/portfolioData';
+import { imageCardClass } from '@/lib/imageLayout';
 
 export default function PortfolioSection() {
   const featured = getFeaturedProjects(3);
@@ -27,7 +28,7 @@ export default function PortfolioSection() {
       </motion.div>
 
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
 
           {featured.map((project, index) => (
             <motion.div
@@ -36,13 +37,9 @@ export default function PortfolioSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.8, delay: index * 0.2, ease: "easeOut" }}
-              className={`relative group overflow-hidden shadow-lg ${
-                index === 0 ? 'lg:mt-12 aspect-[3/4]' :
-                index === 1 ? 'lg:-mt-12 aspect-square' :
-                'lg:mt-24 aspect-[4/5]'
-              }`}
+              className={`${imageCardClass} group shadow-lg`}
             >
-              <Link href={`/portfolio/${project.slug}`} className="block relative w-full h-full min-h-[300px]">
+              <Link href={`/portfolio/${project.slug}`} className="block absolute inset-0">
                 <IkImage
                   src={project.thumbnail}
                   alt={`${project.coupleNames} — ${project.category}`}
@@ -64,7 +61,7 @@ export default function PortfolioSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
-            className="w-full flex items-center justify-center p-8 bg-[#f4efe8] aspect-square shadow-lg lg:mt-24"
+            className={`${imageCardClass} flex items-center justify-center p-8 bg-[#f4efe8] shadow-lg`}
           >
             <div className="text-center">
               <p className="font-serif italic text-2xl text-gray-700 mb-4">View Complete</p>

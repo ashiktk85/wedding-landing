@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import IkImage from '@/components/IkImage';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { imageCardClass } from '@/lib/imageLayout';
 
 export default function BlogDetailClient({ blog }) {
   return (
@@ -38,7 +39,7 @@ export default function BlogDetailClient({ blog }) {
                initial={{ opacity: 0, y: 30 }}
                animate={{ opacity: 1, y: 0 }}
                transition={{ duration: 0.8, delay: 0.2 }}
-               className="relative w-full aspect-[16/9] md:aspect-[21/9] overflow-hidden shadow-lg mb-16"
+               className={`w-full shadow-lg mb-16 ${imageCardClass}`}
             >
                <IkImage
                  src={blog.image}

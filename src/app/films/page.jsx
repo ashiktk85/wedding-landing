@@ -1,10 +1,14 @@
-import FilmsClient from './components/FilmsClient';
+import { canonicalPath, defaultOpenGraph } from '@/lib/metadata';
 
 export const metadata = {
-  title: 'Cinematic Films | FocusMedia Productions',
-  description: 'Experience our curated collection of cinematic wedding and editorial films.',
+  title: 'Cinematic Wedding Films Kerala | FocusMedia Productions',
+  description:
+    'Watch cinematic wedding highlight films by FocusMedia — Kerala weddings and destination celebrations shot and edited with a documentary-meets-editorial style.',
+  ...canonicalPath('/films'),
+  openGraph: defaultOpenGraph({
+    title: 'Cinematic Wedding Films Kerala | FocusMedia',
+    url: '/films',
+  }),
 };
 
-export default function FilmsPage() {
-  return <FilmsClient />;
-}
+export { default } from './components/FilmsClient';

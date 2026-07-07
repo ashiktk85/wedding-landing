@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from 'framer-motion';
+import { packageFaqs } from '@/lib/faqData';
 
 const packages = [
   {
@@ -95,6 +96,14 @@ export default function PackagesClient() {
         >
           We believe in transparent pricing and exceptional value. Every love story is unique, and we offer carefully curated packages to beautifully capture yours. We also offer bespoke options tailored to your exact needs.
         </motion.p>
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.35, ease: "easeOut" }}
+          className="font-sans text-gray-600 max-w-2xl text-sm md:text-base leading-relaxed mt-6"
+        >
+          We believe pricing shouldn&apos;t be a mystery. Here&apos;s exactly what&apos;s included in every package — no hidden costs, no vague &apos;starting from&apos; games.
+        </motion.p>
       </div>
 
       {/* Packages Grid */}
@@ -182,6 +191,34 @@ export default function PackagesClient() {
             <p className="text-sm text-gray-500 italic mb-6">Looking for something else? We offer fully custom packages.</p>
             <a href="/contact" className="inline-block text-xs uppercase tracking-[0.2em] font-bold text-[#8b7355] hover:text-gray-900 border-b border-[#8b7355] pb-1 transition-colors">Request a Custom Quote</a>
           </div>
+        </div>
+      </motion.div>
+
+      {/* FAQ Section */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+        className="max-w-3xl mx-auto px-4 mt-32 relative z-10"
+      >
+        <div className="text-center mb-12">
+          <h2 className="font-serif italic text-4xl text-[#3d3a35] mb-4">Frequently Asked Questions</h2>
+          <p className="font-sans text-gray-500 text-sm uppercase tracking-widest">Wedding photography in Kerala</p>
+        </div>
+
+        <div className="space-y-3">
+          {packageFaqs.map((faq) => (
+            <details key={faq.question} className="bg-white border border-[#e2d5c5]/50 shadow-sm overflow-hidden group">
+              <summary className="px-6 py-5 flex justify-between items-center gap-4 cursor-pointer list-none hover:bg-[#faf9f6] transition-colors [&::-webkit-details-marker]:hidden">
+                <span className="font-serif text-lg text-gray-800">{faq.question}</span>
+                <span className="text-[#8b7355] text-xl flex-shrink-0 group-open:rotate-45 transition-transform">+</span>
+              </summary>
+              <div className="px-6 pb-5 text-gray-600 text-sm leading-relaxed border-t border-[#e2d5c5]/30 pt-4">
+                {faq.answer}
+              </div>
+            </details>
+          ))}
         </div>
       </motion.div>
     </section>

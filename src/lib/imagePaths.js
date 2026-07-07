@@ -1,14 +1,45 @@
+import { portfolioProjects } from './portfolioData';
+
+function project(slug) {
+  const match = portfolioProjects.find((item) => item.slug === slug);
+  if (!match) {
+    throw new Error(`Missing portfolio project: ${slug}`);
+  }
+  return match;
+}
+
+function galleryImage(slug, index = 0) {
+  const { gallery, thumbnail } = project(slug);
+  return gallery[index] ?? thumbnail;
+}
+
 export const siteImages = {
-  hero: '/banners/hero-bg.jpg',
-  aboutBanner: '/banners/about-banner.jpg',
+  /** Wide banner / fallback hero still */
+  hero: project('sahal-and-nahala').thumbnail,
+  aboutBanner: galleryImage('fathima-and-aadhil', 0),
+  about: {
+    artist: '/logo/393384292_351225920720259_4853708852247536020_n.jpg',
+  },
   services: {
-    weddings: '/site/services-weddings.jpg',
-    maternity: '/site/services-maternity.jpg',
-    family: '/site/services-family.jpg',
+    weddings: project('nehla-and-morsy').thumbnail,
+    maternity: galleryImage('maternity-glow', 7),
+    newborn: galleryImage('newborn-fayas', 1),
+    prePostWedding: project('jickson-and-jeni').thumbnail,
   },
   intro: {
-    main: '/site/intro-main.jpg',
-    bouquet: '/site/intro-bouquet.jpg',
+    main: project('rejula-and-nefsal').thumbnail,
+    bouquet: galleryImage('rejula-and-nefsal', 7),
+  },
+  blog: {
+    destination: project('vipin-and-aiswarya').thumbnail,
+    light: galleryImage('harsha-and-anwar', 0),
+    details: galleryImage('rejula-and-nefsal', 7),
+  },
+  films: {
+    destination: project('said-ali-and-sasna-wedding').thumbnail,
+    weddings: project('asif-and-shabiya').thumbnail,
+    editorial: galleryImage('shuhaib-and-nasrin', 0),
+    maternity: project('maternity-glow').thumbnail,
   },
 };
 
@@ -33,4 +64,5 @@ export const approachSlides = [
   siteImages.intro.main,
   siteImages.hero,
   siteImages.services.maternity,
+  siteImages.services.newborn,
 ];

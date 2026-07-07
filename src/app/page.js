@@ -5,39 +5,18 @@ import ImageSliderSection from '@/components/ImageSliderSection';
 import PortfolioSection from '@/components/PortfolioSection';
 import TestimonialsSection from '@/components/TestimonialsSection';
 import Footer from '@/components/Footer';
+import { canonicalPath, defaultOpenGraph, homeKeywords } from '@/lib/metadata';
 
 export const metadata = {
-  title: 'Best Wedding Photography in Kerala | FocusMedia',
-  description: 'Looking for the best wedding photographer in Kerala? FocusMedia Productions provides cinematic wedding videography, destination wedding photography, and corporate video production services in Kochi and across Kerala.',
-  keywords: [
-    'wedding photography',
-    'wedding photographer',
-    'wedding videography',
-    'video production company',
-    'event photography',
-    'event videography',
-    'corporate video production',
-    'wedding photography kochi',
-    'best wedding photography in kerala',
-    'wedding videography kerala',
-    'best wedding photographer kerala',
-    'candid wedding photography kerala',
-    'cinematic wedding videography Kerala',
-    'destination wedding photographer Kerala',
-    'corporate video production kerala',
-    'video production services kerala',
-    'ad film production kerala',
-    'commercial video production india',
-    'promotional video production',
-    'wedding photography packages kerala',
-    'wedding videography price kerala',
-    'hire wedding photographer kerala',
-    'affordable wedding photography kerala',
-    'corporate video production services kerala'
-  ],
-  alternates: {
-    canonical: '/',
-  },
+  title: 'Best Wedding Photographer in Kerala | Candid & Cinematic | FocusMedia',
+  description:
+    'Kochi-based wedding photography & videography studio capturing candid Christian, Hindu & Muslim weddings across Kerala — Munnar, Alleppey, Fort Kochi — plus destination weddings worldwide.',
+  keywords: homeKeywords,
+  ...canonicalPath('/'),
+  openGraph: defaultOpenGraph({
+    title: 'Best Wedding Photographer in Kerala | FocusMedia Productions',
+    url: '/',
+  }),
 };
 
 export default function Home() {

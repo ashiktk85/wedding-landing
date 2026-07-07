@@ -3,14 +3,11 @@
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import IkImage from '@/components/IkImage';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+import { imageCardClass } from '@/lib/imageLayout';
 
 export default function BlogClient({ blogs }) {
   return (
-    <main className="w-full flex min-h-screen flex-col font-sans bg-[#faf9f6]">
-      <Header />
-
+    <>
       <section className="relative w-full pt-32 pb-16 md:pt-40 md:pb-24 flex flex-col items-center justify-center text-center px-4 mt-[-6rem] md:mt-[-7rem] z-10 select-none">
         <div className="h-20"></div>
         <motion.p
@@ -42,7 +39,7 @@ export default function BlogClient({ blogs }) {
                transition={{ duration: 0.8, delay: index * 0.2 }}
                className="flex flex-col group cursor-pointer"
              >
-                <Link href={`/blog/${blog.slug}`} className="block overflow-hidden relative aspect-[4/5] w-full mb-6 shadow-sm group-hover:shadow-xl transition-all duration-500">
+                <Link href={`/blog/${blog.slug}`} className={`block mb-6 shadow-sm group-hover:shadow-xl transition-all duration-500 ${imageCardClass}`}>
                    <IkImage
                      src={blog.image}
                      alt={blog.title}
@@ -78,8 +75,6 @@ export default function BlogClient({ blogs }) {
           ))}
         </div>
       </section>
-
-      <Footer />
-    </main>
+    </>
   );
 }

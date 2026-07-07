@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 import IkImage from '@/components/IkImage';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { imageCardClass, imageGridClass } from '@/lib/imageLayout';
 
 export default function PortfolioDetail({ project }) {
   const [lightboxIndex, setLightboxIndex] = useState(null);
@@ -76,7 +77,7 @@ export default function PortfolioDetail({ project }) {
       </section>
 
       <section className="max-w-[1400px] mx-auto w-full px-4 sm:px-6 md:px-12 pb-24 relative z-10">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
+        <div className={imageGridClass}>
           {project.gallery.map((src, index) => (
             <motion.button
               key={src}
@@ -86,7 +87,7 @@ export default function PortfolioDetail({ project }) {
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.5, delay: index * 0.05 }}
               onClick={() => setLightboxIndex(index)}
-              className="relative aspect-[3/4] overflow-hidden bg-gray-200 shadow-md hover:shadow-xl transition-shadow group cursor-pointer"
+              className={`${imageCardClass} bg-gray-200 shadow-md hover:shadow-xl transition-shadow group cursor-pointer`}
             >
               <IkImage
                 src={src}
@@ -100,7 +101,22 @@ export default function PortfolioDetail({ project }) {
           ))}
         </div>
 
-        <div className="mt-16 flex justify-center">
+        <div className="mt-16 flex flex-col sm:flex-row items-center justify-center gap-6">
+          <Link
+            href="/packages"
+            className="inline-block bg-[#8b7355] text-white uppercase tracking-[0.2em] text-xs font-bold py-3 px-8 hover:bg-[#7a6a57] transition-colors"
+          >
+            View Packages
+          </Link>
+          <Link
+            href="/contact"
+            className="inline-block border border-[#8b7355] text-[#8b7355] uppercase tracking-[0.2em] text-xs font-bold py-3 px-8 hover:bg-[#8b7355] hover:text-white transition-colors"
+          >
+            Inquire Now
+          </Link>
+        </div>
+
+        <div className="mt-10 flex justify-center">
           <Link
             href="/portfolio"
             className="inline-flex items-center text-xs uppercase tracking-[0.2em] font-bold text-gray-500 hover:text-[#8b7355] transition-colors group"

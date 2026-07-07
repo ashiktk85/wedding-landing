@@ -3,6 +3,8 @@
 import { motion } from 'framer-motion';
 import IkImage from '@/components/IkImage';
 import { siteImages } from '@/lib/imagePaths';
+import { siteConfig } from '@/lib/siteConfig';
+import { imageCardClass } from '@/lib/imageLayout';
 
 export default function IntroSection() {
   return (
@@ -80,9 +82,7 @@ export default function IntroSection() {
               className="text-gray-600 text-sm md:text-[15px] space-y-4 leading-relaxed font-medium text-justify"
             >
               <p>
-                It's time to let people know that you are the business they have been searching for.
-                Tiramisu bafouh lollipop candy canes I love liquorice sesame snaps lollipop cheesecake.
-                Jelly-o pie pie pastry halluth. Chocolate cake gingerbread jujubes chupa chups dessert I love pudding jelly-o.
+                Since {siteConfig.foundingYear}, FocusMedia Productions has documented Kerala weddings the way they actually happen — the nervous laugh before the thaali, the quiet tears during the nikah, the chaos and joy of a Kerala Christian reception in full swing. We work across Kochi, Kozhikode, Thrissur and beyond, and we travel for love — whether that is a backwater wedding in Alleppey or a destination celebration overseas. No two weddings look alike, and neither do the photographs we bring back.
               </p>
             </motion.div>
           </div>
@@ -93,9 +93,9 @@ export default function IntroSection() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="relative w-full h-[500px] lg:h-auto min-h-[600px] order-1 lg:order-2 bg-[#1a1a1a]"
+          className="relative w-full order-1 lg:order-2 bg-[#1a1a1a] flex items-center justify-center p-6 lg:p-12"
         >
-          <div className="relative w-full h-full lg:w-4/5 lg:absolute lg:right-0 lg:top-0 lg:bottom-0">
+          <div className={`${imageCardClass} w-full max-w-[520px] shadow-2xl`}>
             <IkImage
               src={siteImages.intro.main}
               alt="Elegant couple portrait"
@@ -112,14 +112,14 @@ export default function IntroSection() {
             whileInView={{ opacity: 1, scale: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="absolute top-[10%] lg:top-[12%] left-4 lg:left-[-15%] w-48 h-72 sm:w-64 sm:h-96 md:w-72 md:h-[28rem] shadow-2xl z-20 hidden sm:block"
+            className={`${imageCardClass} absolute top-[8%] lg:top-[10%] left-4 lg:left-[8%] w-36 sm:w-44 md:w-52 shadow-2xl z-20 hidden sm:block border-[6px] border-white/10`}
           >
             <IkImage
               src={siteImages.intro.bouquet}
               alt="Fine art wedding bouquet"
               fill
               preset="card"
-              className="object-cover object-center border-[6px] border-white/10"
+              className="object-cover object-center"
               sizes="(max-width: 1024px) 300px, 400px"
             />
           </motion.div>
@@ -129,7 +129,7 @@ export default function IntroSection() {
             whileInView={{ opacity: 1, rotate: -3, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="absolute bottom-12 right-8 lg:right-16 z-30 transform -rotate-3 text-right"
+            className="absolute bottom-12 right-8 lg:right-16 z-30 transform -rotate-3 text-right pointer-events-none"
           >
             <p className="font-script text-white text-3xl md:text-5xl lg:text-6xl drop-shadow-lg opacity-90 leading-tight">
               Capturing the beauty of <br /> life's memories
